@@ -1,0 +1,53 @@
+import React, { Component } from 'react'
+import ReactPlayer from 'react-player'
+
+const youtubeUrl = (videoId) => `https://www.youtube.com/watch?v=${videoId}`
+
+class Cake extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      playing: false
+    }
+    this.play = this.play.bind(this)
+    this.pause = this.pause.bind(this)
+  }
+
+  play() {
+    this.setState({ playing: true })
+  }
+
+  pause() {
+    this.setState({ playing: false })
+  }
+
+  render() {
+    const { visual, audio } = this.props
+    return (
+      <div>
+        <ReactPlayer
+          controls
+          volume={0.00}
+          width={document.documentElement.clientWidth}
+          height={document.documentElement.clientHeight}
+          url={youtubeUrl(visual)}
+          playing={this.state.playing}
+          onPlay={this.play}
+          onPause={this.pause}
+          onEnded={this.pause}
+        />
+        <ReactPlayer
+          hidden
+          url={youtubeUrl(audio)}
+          playing={this.state.playing}
+          onPlay={this.play}
+          onPause={this.pause}
+          onEnded={this.pause}
+        />
+      </div>
+    )
+  }
+}
+
+export default Cake
