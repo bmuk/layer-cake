@@ -37,14 +37,16 @@ class Cake extends Component {
           onPause={this.pause}
           onEnded={this.pause}
         />
-        <ReactPlayer
-          hidden
-          url={youtubeUrl(audio)}
-          playing={this.state.playing}
-          onPlay={this.play}
-          onPause={this.pause}
-          onEnded={this.pause}
-        />
+        {audio.map((a, index) => (
+          <ReactPlayer
+            hidden
+            volume={((audio.length - index) / audio.length)}
+            url={youtubeUrl(a)}
+            playing={this.state.playing}
+            onPlay={this.play}
+            onPause={this.pause}
+          />
+        ))}
       </div>
     )
   }

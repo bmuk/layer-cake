@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Route
@@ -11,9 +11,12 @@ const CakeCreator = () => (
   </div>
 )
 
-const CakeViewer = ({ match }) => (
-  <Cake visual={match.params.visual} audio={match.params.audio} />
-)
+const CakeViewer = ({ match }) => {
+  const audio = match.params.audio.split(",")
+  return (
+    <Cake visual={match.params.visual} audio={audio} />
+  )
+}
 
 const LayerCakeRoutes = () => (
   <Router>
