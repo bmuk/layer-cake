@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "gapi": "^0.0.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-player": "^0.14.3",
     "react-router-dom": "^4.0.0",
-    "react-sizeme": "^2.2.0"
+    "react-slick": "^0.14.7",
+    "react-swipeable-views": "^0.11.1",
+    "semantic-ui-react": "^0.67.0",
+    "slick-carousel": "^1.6.0",
+    "youtube-api": "^2.0.6"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

@@ -3,13 +3,8 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import Creator from './Creator'
 import Cake from './Cake'
-
-const CakeCreator = () => (
-  <div>
-    <h2>We create cakes! The best cakes!</h2>
-  </div>
-)
 
 const CakeViewer = ({ match }) => {
   const audio = match.params.audio.split(",")
@@ -21,9 +16,11 @@ const CakeViewer = ({ match }) => {
 const LayerCakeRoutes = () => (
   <Router>
     <div style={{
-      overflow: "hidden"
+      overflow: "hidden",
+      maxHeight: "100vh",
+      maxWidth: "100vw"
     }}>
-      <Route exact path="/" component={CakeCreator} />
+      <Route exact path="/" component={Creator} />
       <Route path="/view/:visual/:audio" component={CakeViewer} />
     </div>
   </Router>

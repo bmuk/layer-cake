@@ -27,5 +27,20 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function start() {
+        // 2. Initialize the JavaScript client library.
+        gapi.client.init({
+          "apiKey": "",
+          "discoveryDocs": ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"],
+        }).then(function() {
+          // attach client library to window object for use in the application
+          window.gapi = gapi.client;
+        });
+      };
+      // 1. Load the JavaScript client library.
+      gapi.load('client', start);
+    </script>
   </body>
 </html>
